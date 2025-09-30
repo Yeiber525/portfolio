@@ -1,0 +1,218 @@
+/* SECCIÓN SOBRE MÍ Y HERRAMIENTAS */
+.sobre-mi {
+  position: relative;
+  background: url(../Img/Fon2.jpg) no-repeat center;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 80px 100px 100px 100px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* CAPA DE OPACIDAD */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* TÍTULOS Y CONTENEDORES */
+.section-title,
+.bio-container,
+.tool-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* TARJETAS BIOGRÁFICAS */
+.bio-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.bio-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #fa0075;
+  border-radius: 12px;
+  padding: 30px 20px;
+  width: 350px;
+  box-shadow: 0 0 15px rgba(250, 0, 117, 0.2);
+  color: #eee;
+  font-size: 1em;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bio-card p {
+  margin-top: 0px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #ddd;
+  padding: 2px 30px;
+}
+
+.bio-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(250, 0, 117, 0.4);
+}
+
+/* TARJETAS DE HERRAMIENTAS */
+.tool-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.tool-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #fa0075;
+  color: #eee;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(250, 0, 117, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.tool-card:nth-child(1) { animation-delay: 0.2s; }
+.tool-card:nth-child(2) { animation-delay: 0.4s; }
+
+.tool-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(250, 0, 117, 0.5);
+}
+
+
+
+/* ANIMACIÓN DE ENTRADA */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes show {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+
+@keyframes final {
+    from { opacity: 1; transform: scale(1)}
+    to { opacity: 0; transform: scale(0.8);}
+}
+
+.logos {
+  position: absolute;
+  top: 0;
+  left: -0.5%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px 10px 20px;
+  z-index: 0; /* ← detrás del contenido */
+  pointer-events: none; /* ← no bloquea clics */
+}
+
+.logo-lateral {
+  width: 500px;
+}
+
+.logo-lateral img {
+  width: 100%;
+  filter: drop-shadow(0 0 5px #fa0075);
+}
+
+@media (max-width: 1640px) {
+    .logo-lateral {
+  width: 0px;
+    }
+
+    .logo-lateral img {
+    width: 0%;
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .bio-card {
+    width: 70%;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .bio-container {
+    margin-bottom: 20px;
+  }
+
+  .tool-container {
+    gap: 20px;
+    flex-wrap: inherit;
+  }
+
+  .tool-card {
+    font-size: 1em;
+    width: 20%;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .sobre-mi {
+    padding: 50px 20px;
+  }
+
+  .logo-lateral {
+  width: 0px;
+    }
+
+    .logo-lateral img {
+    width: 0%;
+    }
+}
+
+/* .logo-lateral {
+    position: fixed;
+  top: 40%;
+  transform: translateY(-38%);
+  width: 80px;
+  /* z-index: 10; */
+/* } */
+
+/* .logos{
+    justify-content: space-between;
+} */
+
+/* .logo-lateral img {
+  width: 550px;
+}
+
+.logo-lateral.left {
+  left: 20px;
+} */
+
+/* .logo-lateral.right {
+  right: 490px;
+
+  
+} */
+

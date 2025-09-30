@@ -1,0 +1,104 @@
+/* CABECERA PRINCIPAL */
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  background: black;
+  width: 100%;
+  z-index: 100%;
+}
+
+/* LOGO */
+.logo {
+  margin-left: 30px;
+}
+
+.logo a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+/* NAVEGACIÓN */
+.navbar {
+  display: flex;
+  margin-right: 10px;
+}
+
+.navbar a {
+  display: block;
+  padding: 20px 20px;
+  color: aliceblue;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.navbar a:hover {
+  background: rgb(85, 85, 85);
+}
+
+/* ENCABEZADO PRINCIPAL */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh !important;
+  background: url(../Img/Ftop.jpg) no-repeat center;
+  background-size: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+/* TÍTULO PRINCIPAL */
+.title1 {
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  width: 90%;
+  max-width: fit-content;
+  border-radius: 15px;
+  font-size: 3.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  margin-bottom: 10px;
+}
+
+/* SUBTÍTULO DEL HEADER */
+.header p {
+  margin-top: 10px;
+  font-size: 30px;
+  color: white;
+  padding: 0 100px;
+  font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .navbar {
+    display: none;
+  }
+
+  .title1 {
+    margin-bottom: 20px;
+    font-size: 25px;
+    width: 50%;
+  }
+
+  .header p {
+  margin-top: 0px;
+  font-size: 20px;
+  padding: 0 50px;
+}
+
+  .header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+}

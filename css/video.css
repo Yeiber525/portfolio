@@ -1,0 +1,77 @@
+/* SECCIÓN DE VIDEO */
+.video-section1 {
+  padding: 80px 100px 100px 100px;
+  background: rgb(19, 19, 19);
+}
+
+/* CONTENEDOR DE VIDEOS */
+.video-container {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+/* TARJETA DE VIDEO */
+.video-card {
+  background: #1c1c1c;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.205);
+  animation: fadeIn 0.7s ease-in;
+  transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* EFECTO HOVER */
+.video-card:hover {
+  transform: scale(1.03);
+  border: 2px solid #f39c12;
+  box-shadow: 0 0 25px rgba(243, 156, 18, 0.4);
+}
+
+/* VIDEO INTERNO */
+.video-card video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* TÍTULO Y DESCRIPCIÓN */
+.video-card h3 {
+  color: #fa0075;
+  margin-top: 15px;
+  font-size: 1.2em;
+}
+
+.video-card p {
+  font-size: 0.95em;
+  color: #ccc;
+  margin-top: 10px;
+}
+
+/* ANIMACIÓN DE ENTRADA */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .video-card {
+    width: 60%;
+    margin-top: 15px;
+    padding: 15px;
+    transform: none;
+  }
+
+  .video-card:hover {
+    transform: none;
+    border: 2px solid #f39c12;
+  }
+
+  .video-section1 {
+    padding: 40px 20px;
+  }
+}

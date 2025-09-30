@@ -1,0 +1,139 @@
+.social-section {
+  padding: 80px 100px;
+  background: url(../Img/Fdw.jpg) no-repeat center;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+}
+
+.social-container {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+.social-card {
+  background: linear-gradient(135deg, #00158d33, #27003657);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(234, 0, 255, 0.329), 0 0 40px rgba(17, 0, 255, 0.274);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.7s ease-in;
+  color: white;
+  width: 280px;
+  overflow: hidden;
+}
+
+.social-card video {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.social-card h3 {
+  color: #fa0075;
+  /* margin-top: 15px; */
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.social-card p {
+  font-size: 0.95em;
+  color: #ccc;
+  margin-top: 10px;
+}
+
+/* Hover */
+.social-card:hover {
+  transform: scale(1.03);
+  border: 2px solid #f39c12;
+  box-shadow: 0 0 25px rgba(243, 156, 18, 0.4);
+}
+
+.social-card h3:last-of-type {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.social-card:hover h3:last-of-type {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.social-card.podcast:hover {
+  border-color: #ff4fa2;
+}
+
+.social-card.sketch:hover {
+  border-color: #ffc04d;
+}
+
+.social-card.youtube:hover {
+  border-color: #4d7dff;
+}
+
+.social-card.lyric {
+  width: 360px;
+  /* aspect-ratio: 16 / 9; */
+  border-color: #9b59b6; /* púrpura lírico */
+  width: 60%;
+  text-align: center;
+  box-shadow: -2 -2 15px rgba(128, 0, 160, 0.445), 2 2 40px rgba(0, 47, 255, 0.438);
+  margin-top: 20px;
+}
+
+.social-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+
+.mute-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: #ffffff88;
+  opacity: 0;
+  pointer-events: none;
+  animation: none;
+}
+
+/* Animación suave desde el centro */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+    .social-card.lyric {
+        width: 500px;
+        height: 150px;
+    }
+
+    .social-section {
+  padding: 50px 100px;
+  background: url(../Img/Fdw.jpg) no-repeat center;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+}
+}

@@ -1,0 +1,78 @@
+/* CAJAS DE SERVICIOS O ELEMENTOS */
+.box-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.box-container .box {
+  height: 11rem;
+  width: 17rem;
+  background: black;
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: 0 .3rem 5rem rgba(0, 0, 0, .5);
+  margin: 2rem;
+  transition: all 0.3s ease;
+}
+
+.box-container .box:hover {
+  height: 14rem;
+  background: #0a0a0a;
+}
+
+.box-container .box i {
+  height: 3rem;
+  width: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  border-radius: 50%;
+  color: bisque;
+  background: #ff00d4;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.box-container .box h3 {
+  font-size: 20px;
+  color: #fa0075;
+}
+
+.box-container .box p {
+  padding: 0 15px;
+  font-size: 16px;
+}
+
+/* FONDO DOCUMENTAL / SECCIÓN INTERMEDIA */
+.about {
+  background: #131313;
+}
+
+.price {
+  background: url(../Img/Fdw.jpg) no-repeat center;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+}
+
+/* SECCIÓN DE CONTACTO */
+.contactos {
+  height: 40vh;
+  background: rgb(0, 0, 0);
+  padding-bottom: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .box-container .box {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+  }
+
+  .contactos {
+    height: auto;
+    padding: 20px;
+  }
+}
