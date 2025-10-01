@@ -28,7 +28,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: 30px 0px 20px 10px;
+  padding: 30px 10px;
   background: linear-gradient(0deg, rgb(17, 17, 17) 70%, rgba(17, 17, 17, 0.027) 100%);
   opacity: 0;
   visibility: hidden;
@@ -36,6 +36,14 @@
   color: #fff;
   box-sizing: border-box;
   border-radius: 0 0 8px 8px;
+}
+
+.formato-info p {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.4;
+  color: #ccc;
+  padding: 0 20px;
 }
 
 .formato-card:hover .formato-info {
@@ -149,14 +157,24 @@
 
 /* Responsive */
 @media (max-width: 600px) {
+  .formato-section {
+    padding: 40px 20px;
+  }
+
   .formato-container {
     flex-direction: column;
     align-items: center;
   }
 
+  .formato-info p {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
   .formato-card.horizontal {
   width: 500px;
   height: 150px;
+  padding: 10px;
   /* aspect-ratio: 16 / 9; */
     }
 
@@ -164,6 +182,16 @@
   margin-top: 15px;
   height: 250px;
 }
+
+  .formato-card.vertical {
+    width: 60%;
+    height: 70%;
+    padding: 10px;
+  }
+  .formato-card.vertical:hover {
+    width: 60%;
+    height: 80%;
+  }
 
   .formato-card {
     max-width: 90%;

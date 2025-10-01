@@ -78,7 +78,6 @@
 }
 
 .social-card.lyric {
-  width: 360px;
   /* aspect-ratio: 16 / 9; */
   border-color: #9b59b6; /* púrpura lírico */
   width: 60%;
@@ -129,11 +128,48 @@
         height: 150px;
     }
 
+    .social-card {
+      width: 60%;
+      padding: 10px;
+    }
+
+    .social-container {
+      gap: 50px;
+    }
+
+    .social-container h3 {
+      padding: 0px;
+      margin-bottom: 0px;
+    }
+
+    .social-video {
+      margin-top: 0px;
+    }
+
+    .social-video:hover {
+      margin-top: 10px;
+    }
+
     .social-section {
-  padding: 50px 100px;
+  padding: 30px 20px;
   background: url(../Img/Fdw.jpg) no-repeat center;
   background-attachment: fixed;
   background-size: cover;
   text-align: center;
+}
+
+.social-row {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.social-row h3{
+  margin-bottom: 0px;
+}
+
+.social-section h2 {
+  padding-bottom: 20px;
 }
 }
