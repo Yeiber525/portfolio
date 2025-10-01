@@ -265,12 +265,18 @@
   const loader = card.querySelector('.video-loader');
   if (video && loader) {
     loader.style.display = 'block';
-    video.addEventListener('canplay', () => {
+
+    // Oculta el loader solo cuando el primer frame está listo
+    video.addEventListener('loadeddata', () => {
       loader.style.display = 'none';
     });
+
+    // Si el video vuelve a cargar (buffering), muestra el loader
     video.addEventListener('waiting', () => {
       loader.style.display = 'block';
     });
+
+    // Cuando vuelve a reproducirse, oculta el loader
     video.addEventListener('playing', () => {
       loader.style.display = 'none';
     });
