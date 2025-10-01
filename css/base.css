@@ -78,3 +78,28 @@ p {
   letter-spacing: 2px;
 }
 }
+
+.video-loader {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #333;
+  border-radius: 50%;
+  width: 40px; height: 40px;
+  animation: spin 1s linear infinite;
+  z-index: 2;
+  background: transparent;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg);}
+  100% { transform: translate(-50%, -50%) rotate(360deg);}
+}
+
+.video-card,
+.formato-card,
+.social-card {
+  position: relative;
+}

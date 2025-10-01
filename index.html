@@ -9,9 +9,7 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/video.css">
   <link rel="stylesheet" href="css/sobre-mi.css">
-  <link rel="stylesheet" href="css/herramientas.css">
   <link rel="stylesheet" href="css/extras.css">
-  <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/formatos.css">
   <link rel="stylesheet" href="css/social.css">
   <link rel="stylesheet" href="css/contacto.css">
@@ -48,6 +46,7 @@
         <div class="video-container">
 
             <div class="video-card">
+              <div class="video-loader"></div>
                 <video class="lazy-video" muted loop playsinline>
                     <source src="videos/Edit 90.production 2023.mp4" type="video/mp4">
                     Tu navegador no soporta el video.
@@ -57,6 +56,7 @@
             </div>
 
             <div class="video-card">
+              <div class="video-loader"></div>
                 <video class="lazy-video" muted loop playsinline>
                     <source src="videos/Carrucel.mp4" type="video/mp4">
                     Tu navegador no soporta el video.
@@ -112,6 +112,7 @@
   <div class="formato-container">
     <!-- Tarjeta horizontal -->
     <div class="formato-card horizontal">
+      <div class="video-loader"></div>
   <video class="lazy-video" muted loop playsinline>
     <source src="videos/IntroH.mp4" type="video/mp4">
     Tu navegador no soporta el video.
@@ -124,6 +125,7 @@
 
     <!-- Tarjeta vertical -->
     <div class="formato-card vertical">
+      <div class="video-loader"></div>
   <video class="lazy-video" muted loop playsinline>
     <source src="videos/IntroV.mp4" type="video/mp4">
     Tu navegador no soporta el video.
@@ -142,6 +144,7 @@
         <!-- Podcast -->
         <div class="social-card podcast">
             <h3>Podcast</h3>
+            <div class="video-loader"></div>
             <video class="social-video" muted loop playsinline>
             <source src="videos/Podcast.mp4" type="video/mp4">
             Tu navegador no soporta el video.
@@ -151,6 +154,7 @@
         <!-- Sketch -->
         <div class="social-card sketch">
             <h3>Sketch</h3>
+            <div class="video-loader"></div>
             <video class="social-video" muted loop playsinline>
             <source src="videos/Sketch.mp4" type="video/mp4">
             Tu navegador no soporta el video.
@@ -160,6 +164,7 @@
         <!-- Antes/Despues -->
         <div class="social-card youtube">
             <h3>Antes/Despues</h3>
+            <div class="video-loader"></div>
             <video class="social-video" muted loop playsinline>
             <source src="videos/antesdespues.mp4" type="video/mp4">
             Tu navegador no soporta el video.
@@ -170,6 +175,7 @@
     <div class="social-row">
   <div class="social-card lyric horizontal">
     <h3>Lyric Visual</h3>
+    <div class="video-loader"></div>
     <video class="social-video" muted loop playsinline>
       <source src="videos/Video Lyric.mp4" type="video/mp4">
       Tu navegador no soporta el video.
@@ -253,6 +259,23 @@
       }
     });
   });
+
+  document.querySelectorAll('.video-card, .formato-card, .social-card').forEach(card => {
+  const video = card.querySelector('video');
+  const loader = card.querySelector('.video-loader');
+  if (video && loader) {
+    loader.style.display = 'block';
+    video.addEventListener('canplay', () => {
+      loader.style.display = 'none';
+    });
+    video.addEventListener('waiting', () => {
+      loader.style.display = 'block';
+    });
+    video.addEventListener('playing', () => {
+      loader.style.display = 'none';
+    });
+  }
+});
 </script>
 
 
