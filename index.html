@@ -89,7 +89,7 @@
         <div class="bio-card">
             <!-- <p>Soy Yeiber</p> -->
           <p>
-              Soy Yeiber, <br>Editor audiovisual, enfocado en narrativa visual.Transformo ideas en piezas visuales que comunican, conectan y dejan huella.
+              Soy Yeiber. <br>Editor audiovisual, enfocado en narrativa visual.Transformo ideas en piezas visuales que comunican, conectan y dejan huella.
         </p>
         </div>
 
@@ -204,7 +204,7 @@
 </section>
 
 
-<script>
+<script>  
   // Selecciona todos los videos que quieras controlar
   const videos = document.querySelectorAll('.lazy-video, .social-video');
 
@@ -283,6 +283,21 @@
     });
   }
 });
+
+const sobreMi = document.querySelector('.sobre-mi');
+const logos = document.querySelectorAll('.logo-lateral');
+
+const observerLogos = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      logos.forEach(logo => logo.classList.add('visible'));
+    } else {
+      logos.forEach(logo => logo.classList.remove('visible'));
+    }
+  });
+}, { threshold: 0.5 }); // 0.5 = cuando la mitad de la sección está visible
+
+if (sobreMi) observerLogos.observe(sobreMi);
 </script>
 
 
