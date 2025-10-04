@@ -52,8 +52,7 @@
                     <source src="videos/Edit 90.production 2023.mp4" type="video/mp4">
                     Tu navegador no soporta el video.
                 </video>
-                <!-- <h3>Sketch Documental – National Enchugraphic</h3>
-                <p>Exploración visual con atmósfera selvática y curaduría tribal.</p> -->
+                <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
             </div>
 
             <div class="video-card">
@@ -62,8 +61,7 @@
                     <source src="videos/Carrucel2.mp4" type="video/mp4">
                     Tu navegador no soporta el video.
                 </video>
-                <!-- <h3>Sketch Documental – National Enchugraphic</h3>
-                <p>Exploración visual con atmósfera selvática y curaduría tribal.</p> -->
+                <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
             </div>
 
         </div>
@@ -118,6 +116,7 @@
     <source src="videos/IntroH.mp4" type="video/mp4">
     Tu navegador no soporta el video.
   </video>
+  <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
   <div class="formato-info">
     <h3>Formato Horizontal</h3>
     <p>Ideal para YouTube, documentales y presentaciones visuales amplias.</p>
@@ -131,6 +130,7 @@
     <source src="videos/IntroV.mp4" type="video/mp4">
     Tu navegador no soporta el video.
   </video>
+  <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
   <div class="formato-info">
     <h3>Formato Vertical</h3>
     <p>Perfecto para reels, TikTok y contenido móvil con impacto.</p>
@@ -230,10 +230,10 @@
   });
 
   // Si quieres controlar mute/unmute al hacer click en social-video:
-  document.querySelectorAll('.social-video').forEach(video => {
+  document.querySelectorAll('.social-video, .lazy-video').forEach(video => {
     video.addEventListener('click', () => {
       // Mutea todos los demás
-      document.querySelectorAll('.social-video').forEach(v => {
+      document.querySelectorAll('.social-video, .lazy-video').forEach(v => {
         if (v !== video) {
           v.muted = true;
           const otherIcon = v.parentElement.querySelector('.mute-indicator');

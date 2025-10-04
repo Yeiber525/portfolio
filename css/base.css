@@ -98,6 +98,10 @@ p {
   100% { transform: translate(-50%, -50%) rotate(360deg);}
 }
 
+.video-card video{
+  cursor: pointer;
+}
+
 .video-card,
 .formato-card,
 .social-card {

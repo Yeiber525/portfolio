@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   height: 70px;
-  background: black;
+  background: rgb(0, 0, 0);
   width: 100%;
   z-index: 100%;
 }
@@ -48,8 +48,8 @@
   height: 30vh !important;
   background: url(../Img/Ftop.jpg) no-repeat center;
   background-size: cover;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 /* TÍTULO PRINCIPAL */
