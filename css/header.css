@@ -112,7 +112,7 @@
   }
 
   .header {
-    height: 20vh; /* El video ocupará el 50% del alto de la pantalla del celular */
+    height: 17vh; /* El video ocupará el 50% del alto de la pantalla del celular */
     width: 100%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
