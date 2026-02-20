@@ -59,6 +59,15 @@
                 <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
             </div>
 
+            <div class="video-card-H">
+              <div class="video-loader"></div>
+                <video class="lazy-video" muted loop playsinline>
+                    <source src="videos/Edit Coreo.mp4" type="video/mp4">
+                    Tu navegador no soporta el video.
+                </video>
+                <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+            </div>
+
             <div class="video-card">
               <div class="video-loader"></div>
                 <video class="lazy-video" muted loop playsinline>
@@ -265,7 +274,7 @@
     });
   });
 
-  document.querySelectorAll('.video-card, .formato-card, .social-card').forEach(card => {
+  document.querySelectorAll('.video-card, .video-card-H, .formato-card, .social-card').forEach(card => {
   const video = card.querySelector('video');
   const loader = card.querySelector('.video-loader');
   if (video && loader) {
