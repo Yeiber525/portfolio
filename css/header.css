@@ -42,14 +42,16 @@
 
 /* ENCABEZADO PRINCIPAL */
 .header {
+  position: relative; /* Necesario para posicionar el video detrás */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30vh !important;
-  background: url(../Img/Ftop.jpg) no-repeat center;
-  background-size: cover;
+  /* Dimensiones exactas que pediste */
+  margin: 0 auto; /* Centra el bloque si la pantalla es más ancha */
+  overflow: hidden;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  background: black; /* Fondo de seguridad */
 }
 
 /* TÍTULO PRINCIPAL */

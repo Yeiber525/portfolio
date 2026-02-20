@@ -1,7 +1,28 @@
 /* SECCIÓN DE VIDEO */
 .video-section1 {
   padding: 80px 100px 100px 100px;
-  background: rgb(19, 19, 19);
+  /* Degradado moderno tipo "Aurora" */
+  background: 
+    radial-gradient(at 0% 0%, rgba(12, 0, 12, 0.815) 0px), /* Morado arriba izquierda */
+    radial-gradient(at 100% 100%, rgb(0, 15, 58) 0px), /* Azul abajo derecha */
+    #00091d; /* Azul muy oscuro de base para que sea moderno */
+  position: relative;
+  border-top: 2px solid rgba(255, 255, 255, 0.349);
+}
+
+.video-section1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03; /* Controla qué tan fuerte se ve el ruido (0.05 es sutil y elegante) */
+  pointer-events: none; /* Para que no interfiera con los clics en los videos */
+  z-index: 1;
+  
+  /* Textura de ruido generada matemáticamente */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* CONTENEDOR DE VIDEOS */
@@ -14,7 +35,7 @@
 
 /* TARJETA DE VIDEO */
 .video-card {
-  background: #1c1c1c;
+  background: #140010af;
   border: 2px solid transparent;
   border-radius: 12px;
   width: 300px;
@@ -27,8 +48,8 @@
 /* EFECTO HOVER */
 .video-card:hover {
   transform: scale(1.03);
-  border: 2px solid #f39c12;
-  box-shadow: 0 0 25px rgba(243, 156, 18, 0.4);
+  border: 2px solid #2112f3;
+  box-shadow: 0 0 25px rgba(18, 209, 243, 0.4);
 }
 
 /* VIDEO INTERNO */
