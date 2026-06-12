@@ -173,3 +173,60 @@
   padding-bottom: 20px;
 }
 }
+
+/* --- Carousel slider styles --- */
+.social-slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.social-track {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: nowrap;
+  /* desplazamiento continuo: se asume que los items están duplicados para loop */
+  animation: scroll-left 15s linear infinite;
+}
+
+/* Pausa en hover sobre el track o el wrapper */
+.social-slider-wrapper:hover .social-track,
+.social-track:hover {
+  animation-play-state: paused;
+}
+
+.social-slider-wrapper .social-card {
+  will-change: transform;
+  transform: translateZ(0);
+  flex: 0 0 280px; /* mantener tamaño fijo vertical */
+}
+
+/* Animación que desplaza la pista hacia la izquierda la mitad de su ancho (elementos duplicados) */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mejora: evitar parpadeos en navegadores forzando composición por GPU */
+.social-slider-wrapper .social-card video {
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Ajustes responsivos para el carrusel */
+@media (max-width: 900px) {
+  .social-slider-wrapper .social-card {
+    flex: 0 0 220px;
+  }
+  .social-track {
+    gap: 18px;
+    animation-duration: 36s;
+  }
+}

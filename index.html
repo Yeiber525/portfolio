@@ -154,49 +154,169 @@
 <section class="social-section" id="social">
   <h2 class="section-title">Social Media</h2>
 
-    <div class="social-container">
-        <!-- Podcast -->
-        <div class="social-card podcast">
-            <h3>Podcast</h3>
-            <div class="video-loader"></div>
-            <video class="social-video" muted loop playsinline>
-            <source src="videos/Podcast.mp4" type="video/mp4">
-            Tu navegador no soporta el video.
-            </video>
-            <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
-        </div>
-        <!-- Sketch -->
-        <div class="social-card sketch">
-            <h3>Sketch</h3>
-            <div class="video-loader"></div>
-            <video class="social-video" muted loop playsinline>
-            <source src="videos/Sketch.mp4" type="video/mp4">
-            Tu navegador no soporta el video.
-            </video>
-            <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
-        </div>
-        <!-- Antes/Despues -->
-        <div class="social-card youtube">
-            <h3>Antes/Después</h3>
-            <div class="video-loader"></div>
-            <video class="social-video" muted loop playsinline>
-            <source src="videos/antesdespues.mp4" type="video/mp4">
-            Tu navegador no soporta el video.
-            </video>
-            <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
-        </div>
+  <div class="social-slider-wrapper">
+    <div class="social-track">
+      <!-- Original 5 videos (3 existentes + 2 añadidos) -->
+      <div class="social-card podcast">
+        <h3>Podcast</h3>
+        <div class="video-loader"></div>
+        <video class="social-video" muted loop playsinline>
+          <source src="videos/Podcast.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+      </div>
+
+      <div class="social-card sketch">
+        <h3>Sketch</h3>
+        <div class="video-loader"></div>
+        <video class="social-video" muted loop playsinline>
+          <source src="videos/Sketch.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+      </div>
+
+      <div class="social-card youtube">
+        <h3>Antes/Después</h3>
+        <div class="video-loader"></div>
+        <video class="social-video" muted loop playsinline>
+          <source src="videos/antesdespues.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+      </div>
+
+      <!-- Dos tarjetas nuevas (iguales en estructura a las anteriores) -->
+      <div class="social-card extra">
+        <h3>Extra 1</h3>
+        <div class="video-loader"></div>
+        <video class="social-video" muted loop playsinline>
+          <source src="videos/AntesD.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+      </div>
+
+      <div class="social-card extra">
+        <h3>Extra 2</h3>
+        <div class="video-loader"></div>
+        <video class="social-video" muted loop playsinline>
+          <source src="videos/TONYraw.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+      </div>
+
+      <!-- Clones duplicados para bucle infinito: aria-hidden="true" y videos con autoplay muted loop nativo (sin lazy) -->
+      <div class="social-card podcast" aria-hidden="true">
+        <h3>Podcast</h3>
+        <div class="video-loader"></div>
+        <video autoplay muted loop playsinline>
+          <source src="videos/Podcast.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+      </div>
+
+      <div class="social-card sketch" aria-hidden="true">
+        <h3>Sketch</h3>
+        <div class="video-loader"></div>
+        <video autoplay muted loop playsinline>
+          <source src="videos/Sketch.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+      </div>
+
+      <div class="social-card youtube" aria-hidden="true">
+        <h3>Antes/Después</h3>
+        <div class="video-loader"></div>
+        <video autoplay muted loop playsinline>
+          <source src="videos/antesdespues.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+      </div>
+
+      <div class="social-card extra" aria-hidden="true">
+        <h3>Extra 1</h3>
+        <div class="video-loader"></div>
+        <video autoplay muted loop playsinline>
+          <source src="videos/Podcast.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+      </div>
+
+      <div class="social-card extra" aria-hidden="true">
+        <h3>Extra 2</h3>
+        <div class="video-loader"></div>
+        <video autoplay muted loop playsinline>
+          <source src="videos/Sketch.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+      </div>
     </div>
-    <div class="social-row">
-  <div class="social-card lyric horizontal">
-    <h3>Lyric Visual</h3>
-    <div class="video-loader"></div>
-    <video class="social-video" muted loop playsinline>
-      <source src="videos/Video Lyric.mp4" type="video/mp4">
-      Tu navegador no soporta el video.
-    </video>
-    <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
   </div>
-</div>
+
+  <div class="social-row">
+    <div class="social-card lyric horizontal">
+      <h3>Lyric Visual</h3>
+      <div class="video-loader"></div>
+      <video class="social-video" muted loop playsinline>
+        <source src="videos/Video Lyric.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+      <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN NUEVA: VSL & MOTION GRAPHICS -->
+<section class="formato-section" id="vsl-portfolio">
+  
+  <!-- CONTEXTO AISLADO: Aquí el texto no interfiere con las tarjetas -->
+  <div class="vsl-header">
+    <h2 class="section-title">VSL & Motion Graphics</h2>
+    <p class="section-description">
+  Producción y dirección creativa de contenido audiovisual para <strong>The Mind Boost</strong>, orientado a terapeutas profesionales y emprendedores. Piezas desarrolladas bajo pautas comerciales específicas, combinando narrativa épica, textos dinámicos con excelente ritmo en CapCut y una selección de recursos visuales estilizados. Un enfoque donde la creatividad y el diseño se alinean para cumplir con los objetivos de comunicación y conversión del cliente.
+</p>
+  </div>
+
+  <!-- CONTENEDOR LIMPIO: Ahora solo contiene tus 2 tarjetas horizontales -->
+  <div class="formato-container">
+    
+    <!-- Tarjeta 1: Video Sales Letter Comercial -->
+    <div class="formato-card horizontal">
+      <div class="video-loader"></div>
+      <video class="lazy-video" muted loop playsinline>
+        <source src="videos/VSL1.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+      <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+      <div class="formato-info">
+        <h3>Video Sales Letter (VSL)</h3>
+        <p>Edición estratégica de alto impacto orientada a conversión, optimizando el ritmo visual y la retención.</p>
+      </div>
+    </div>
+
+    <!-- Tarjeta 2: Motion Graphics / Animación Comercial -->
+    <div class="formato-card horizontal">
+      <div class="video-loader"></div>
+      <video class="lazy-video" muted loop playsinline>
+        <source src="videos/VSL2.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+      <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
+      <div class="formato-info">
+        <h3>Dynamic Motion Graphics</h3>
+        <p>Animación avanzada de elementos de marca, subtítulos cinéticos y transiciones customizadas en After Effects.</p>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <section class="contact-section" id="contacto">
