@@ -16,7 +16,7 @@ body {
 
 /* Evita que el contenido quede bajo la cabecera fija */
 body {
-  padding-top: 70px;
+  padding-top: 56px;
 }
 
 /* TÍTULOS GENERALES */

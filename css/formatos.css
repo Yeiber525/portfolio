@@ -12,29 +12,7 @@
 }
 
 /* Fuerza a que el bloque de texto ocupe todo el ancho superior y se centre */
-.vsl-header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-bottom: 35px; /* Separa el texto de las tarjetas de video */
-}
-
-/* Controla el tamaño del párrafo para mantener el estilo aesthetic y minimalista */
-.section-description {
-  color: #ccc;
-  font-size: 16px !important; /* Tamaño perfecto para lectura sin romper el diseño */
-  max-width: 800px;
-  line-height: 1.6;
-  margin: 15px auto 0 auto;
-  padding: 0 20px !important;
-}
-
-.section-description strong {
-  color: #f1c40f; /* Resalta The Mind Boost en dorado */
-}
+/* VSL header moved to css/vsl.css */
 
 .formato-card {
   background: #1c1c1c;
@@ -84,7 +62,8 @@
 /* Altura normal */
 .formato-card.horizontal {
   margin-top: 40px;
-  height: 300px;
+    width: 720px;
+  height: 405px; /* 16:9 */
   transition: margin-top 0.4s cubic-bezier(.4,2,.6,1), height 0.4s cubic-bezier(.4,2,.6,1);
 
 }
@@ -140,7 +119,7 @@
 
 /* Tarjeta horizontal */
 .formato-card.horizontal {
-  width: 460px;
+  width: 500px;
   height: 300px;
   aspect-ratio: 16 / 9;
 }
@@ -198,16 +177,15 @@
   }
 
   .formato-card.horizontal {
-  width: 500px;
-  height: 150px;
-  padding: 10px;
-  /* aspect-ratio: 16 / 9; */
-    }
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
 
-    .formato-card.horizontal:hover {
-  margin-top: 15px;
-  height: 250px;
-}
+  .formato-card.horizontal:hover {
+    margin-top: 15px;
+    height: auto;
+  }
 
   .formato-card.vertical {
     width: 60%;
