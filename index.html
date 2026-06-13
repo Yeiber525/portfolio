@@ -20,7 +20,7 @@
     <div class="head">
 
     <div class="logo">
-        <!-- <a href="#"><img src="--" height="50px" width="100%" alt=""></a> -->
+        <a href="#"><img src="Img/LogoBlanco.png" height="50px" width="100%" alt=""></a>
         
     </div>
 
@@ -189,7 +189,7 @@
 
       <!-- Dos tarjetas nuevas (iguales en estructura a las anteriores) -->
       <div class="social-card extra">
-        <h3>Extra 1</h3>
+        <h3>Antes/Después</h3>
         <div class="video-loader"></div>
         <video class="social-video" muted loop playsinline>
           <source src="videos/AntesD.mp4" type="video/mp4">
@@ -199,7 +199,7 @@
       </div>
 
       <div class="social-card extra">
-        <h3>Extra 2</h3>
+        <h3>Antes/Después</h3>
         <div class="video-loader"></div>
         <video class="social-video" muted loop playsinline>
           <source src="videos/TONYraw.mp4" type="video/mp4">
@@ -207,58 +207,6 @@
         </video>
         <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
       </div>
-
-      <!-- Clones duplicados para bucle infinito: aria-hidden="true" y videos con autoplay muted loop nativo (sin lazy) -->
-      <div class="social-card podcast" aria-hidden="true">
-        <h3>Podcast</h3>
-        <div class="video-loader"></div>
-        <video autoplay muted loop playsinline>
-          <source src="videos/Podcast.mp4" type="video/mp4">
-          Tu navegador no soporta el video.
-        </video>
-        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
-      </div>
-
-      <div class="social-card sketch" aria-hidden="true">
-        <h3>Sketch</h3>
-        <div class="video-loader"></div>
-        <video autoplay muted loop playsinline>
-          <source src="videos/Sketch.mp4" type="video/mp4">
-          Tu navegador no soporta el video.
-        </video>
-        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
-      </div>
-
-      <div class="social-card youtube" aria-hidden="true">
-        <h3>Antes/Después</h3>
-        <div class="video-loader"></div>
-        <video autoplay muted loop playsinline>
-          <source src="videos/antesdespues.mp4" type="video/mp4">
-          Tu navegador no soporta el video.
-        </video>
-        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
-      </div>
-
-      <div class="social-card extra" aria-hidden="true">
-        <h3>Extra 1</h3>
-        <div class="video-loader"></div>
-        <video autoplay muted loop playsinline>
-          <source src="videos/Podcast.mp4" type="video/mp4">
-          Tu navegador no soporta el video.
-        </video>
-        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
-      </div>
-
-      <div class="social-card extra" aria-hidden="true">
-        <h3>Extra 2</h3>
-        <div class="video-loader"></div>
-        <video autoplay muted loop playsinline>
-          <source src="videos/Sketch.mp4" type="video/mp4">
-          Tu navegador no soporta el video.
-        </video>
-        <div class="mute-indicator"><i class="fas fa-volume-mute"></i></div>
-      </div>
-    </div>
   </div>
 
   <div class="social-row">
@@ -431,6 +379,81 @@ const observerLogos = new IntersectionObserver(entries => {
 }, { threshold: 0.5 }); // 0.5 = cuando la mitad de la sección está visible
 
 if (sobreMi) observerLogos.observe(sobreMi);
+// --- Carrusel social: duplicar elementos para loop suave e infinito ---
+(function() {
+  const track = document.querySelector('.social-track');
+  if (!track) return;
+
+  // Evitar duplicados múltiples
+  if (track.dataset.cloned === 'true') return;
+
+  // Duplicar los items dentro de la pista para crear un loop continuo
+  track.innerHTML = track.innerHTML + track.innerHTML;
+  track.dataset.cloned = 'true';
+
+  // Calcular desplazamiento exacto (la mitad del ancho total) y exponerlo como variable CSS
+  // Esto evita que el carrusel 'salte' al reiniciarse
+  const halfWidth = track.scrollWidth / 2;
+  track.style.setProperty('--scroll-amount', `-${halfWidth}px`);
+
+  // Ajustar la duración de la animación según la anchura (px por segundo)
+  const pxPerSecond = 80; // ajuste: mayor = más rápido
+  const duration = Math.max(8, Math.round(halfWidth / pxPerSecond));
+  track.style.animationDuration = `${duration}s`;
+
+  // Re-inicializar observadores y handlers para los videos recién clonados
+  // Reusar el observer definido antes en el script (IntersectionObserver llamado 'observer')
+  try {
+    const allVideos = document.querySelectorAll('.lazy-video, .social-video');
+    allVideos.forEach(video => {
+      // Evitar re-agregar listeners
+      if (!video.dataset.playObserverAttached) {
+        if (typeof observer !== 'undefined' && observer && observer.observe) {
+          observer.observe(video);
+        }
+        video.dataset.playObserverAttached = 'true';
+      }
+
+      // Click para mute/unmute (solo una vez)
+      if (!video.dataset.clickInit) {
+        video.addEventListener('click', () => {
+          document.querySelectorAll('.social-video, .lazy-video').forEach(v => {
+            if (v !== video) {
+              v.muted = true;
+              const otherIcon = v.parentElement.querySelector('.mute-indicator');
+              if (otherIcon) otherIcon.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            }
+          });
+          video.muted = !video.muted;
+          const icon = video.parentElement.querySelector('.mute-indicator');
+          if (icon) {
+            icon.innerHTML = video.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+            icon.style.animation = 'popIn 0.4s ease';
+            icon.style.opacity = 1;
+            setTimeout(() => { icon.style.opacity = 0; icon.style.animation = 'none'; }, 600);
+          }
+        });
+        video.dataset.clickInit = 'true';
+      }
+    });
+
+    // Re-attach loader handlers for cards (evitar duplicados usando dataset)
+    document.querySelectorAll('.video-card, .video-card-H, .formato-card, .social-card').forEach(card => {
+      if (card.dataset.loaderInit === 'true') return;
+      const v = card.querySelector('video');
+      const loader = card.querySelector('.video-loader');
+      if (v && loader) {
+        loader.style.display = 'block';
+        v.addEventListener('loadeddata', () => { loader.style.display = 'none'; });
+        v.addEventListener('waiting', () => { loader.style.display = 'block'; });
+        v.addEventListener('playing', () => { loader.style.display = 'none'; });
+      }
+      card.dataset.loaderInit = 'true';
+    });
+  } catch (e) {
+    console.warn('Error al inicializar videos/clonados:', e);
+  }
+})();
 </script>
 
 

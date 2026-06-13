@@ -14,6 +14,11 @@ body {
   background: black;
 }
 
+/* Evita que el contenido quede bajo la cabecera fija */
+body {
+  padding-top: 70px;
+}
+
 /* TÍTULOS GENERALES */
 .section-title {
   font-size: 2.5em;
