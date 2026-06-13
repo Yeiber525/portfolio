@@ -230,3 +230,34 @@
     animation-duration: 36s;
   }
 }
+
+/* ==========================================
+   AJUSTE DE TAMAÑO PARA LYRIC VISUAL
+   ========================================== */
+
+/* 1. Asegurar que el contenedor ocupe todo el ancho disponible y centre la tarjeta */
+.social-row {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important; /* Centra el Lyric Visual en la pantalla */
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+/* 2. Forzar a la tarjeta a romper las limitaciones de tamaño del carrusel */
+.social-card.lyric.horizontal {
+    width: 80% !important;     /* Modifica este porcentaje si lo quieres más ancho o más angosto */
+    max-width: 900px !important; /* Evita que en pantallas gigantes se deforme */
+    flex: 0 0 80% !important;   /* Anula el flex fijo de 280px que tiene el carrusel */
+    display: flex !important;
+    flex-direction: column !important; /* Alínea el título y el video verticalmente */
+    align-items: center !important;
+}
+
+/* 3. Asegurar que el video dentro de esa tarjeta llene todo el espacio */
+.social-card.lyric.horizontal video {
+    width: 100% !important;
+    height: auto !important;   /* Mantiene la proporción original de aspecto del video */
+    object-fit: contain !important; /* Evita que el video se recorte */
+    border-radius: 8px;        
+}

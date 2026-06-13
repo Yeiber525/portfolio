@@ -34,13 +34,21 @@
   flex-wrap: wrap;
 }
 
+/* Contenedor para apilar tarjetas horizontales una encima de otra */
+.video-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
 /* TARJETA DE VIDEO */
 .video-card {
   background: #140010af;
   border: 2px solid transparent;
   border-radius: 12px;
   width: 300px;
-  padding: 20px;
+  padding: 14px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.205);
   animation: fadeIn 0.7s ease-in;
   transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
@@ -50,9 +58,9 @@
   background: #140010af;
   border: 2px solid transparent;
   border-radius: 12px;
-  width: 600px;
-  height: 340px;
-  padding: 20px;
+  width: 350px;
+  height: auto;
+  padding: 9px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.205);
   animation: fadeIn 0.7s ease-in;
   transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
@@ -123,4 +131,54 @@
   .video-section1 {
     padding: 40px 20px;
   }
+}
+
+/* Contenedor de la tarjeta de video relativo para posicionar el texto */
+.video-card, .video-card-H, .formato-card, .social-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Indicador flotante / Mensaje de Sonido */
+.sound-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px); /* Efecto difuminado premium */
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    pointer-events: none; /* Para que no interfiera con el click en el video */
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Mostrar cuando el mouse pasa por encima de la tarjeta */
+.video-card:hover .sound-hint, 
+.video-card-H:hover .sound-hint, 
+.formato-card:hover .sound-hint, 
+.social-card:hover .sound-hint {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Ocultar el mensaje si el video ya está sonando (opcional, controlado por JS) */
+.video-card.is-playing-audio .sound-hint,
+.video-card-H.is-playing-audio .sound-hint,
+.formato-card.is-playing-audio .sound-hint,
+.social-card.is-playing-audio .sound-hint {
+    opacity: 0 !important;
+    pointer-events: none;
 }

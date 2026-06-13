@@ -40,7 +40,7 @@
   background: #1c1c1c;
   border: 2px solid transparent;
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeIn 0.7s ease-in;
